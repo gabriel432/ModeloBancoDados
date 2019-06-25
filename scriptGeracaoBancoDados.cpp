@@ -1,6 +1,5 @@
 #include <iostream>
-//#include  "C:\Program Files\PostgreSQL\11\include\libpq-fe.h"
-#include "libpq-fe.h"
+#include  "C:\Program Files\PostgreSQL\11\include\libpq-fe.h"
 #include <string>
 using namespace std;
 //para compilar no windows g++  -I "C:\Program Files\PostgreSQL\11\include" -L "C:\Program Files\PostgreSQL\11\lib"
@@ -8,12 +7,12 @@ using namespace std;
 int main(){
 
     cout << "teste";
-    PGconn *bd = PQconnectdb("host=localhost port=5432 dbname=republica user=gabriel password=gabriel");
-    if(PQstatus(bd) == CONNECTION_OK)
+    PQconnectdb("host=localhost port=5432 dbname=republica user=gabriel password=gabriel");
+    if(true == CONNECTION_OK)
         cout << "deubom";
     else
         cout << "deuruim";
-    
+    return 0;/*
     PQexec(bd,"CREATE TABLE REPUBLICA ( \
     TELEFONE VARCHAR(11) NOT NULL, \
     NOME VARCHAR(200) NOT NULL, \
@@ -171,5 +170,5 @@ PQexec(bd,"CREATE TABLE PROBLEMA ( \
 
 
     PQfinish(bd);
-    return 0;
+    return 0;*/
 }
