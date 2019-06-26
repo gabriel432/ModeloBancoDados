@@ -14,13 +14,43 @@ INSERT INTO REPUBLICA
 VALUES ('3135511982', 'Pulgatorio', 'Minas Gerais', '54', 'Rua parana', 'Centro', 'Ouro preto', '35400000', 'aaa', '20180206');
 
 INSERT INTO USUARIO
-VALUES ('31988082828', 'Ferreiro', '20191207', '1055d3e698d289f2af8663725127bd4b', '19950508', 'carlos929@hotmail.com', 'Carlos Andrade Barros', '20191204', '3135517368');
+VALUES ('31988082828', 'Ferreiro', '20191207', '1055d3e698d289f2af866', '19950508', 'carlos929@hotmail.com', 'Carlos Andrade Barros', '20191204', '3135517368');
 
 INSERT INTO USUARIO
-VALUES ('31988085157', 'Jubileu', '20190202', '9e107d9d372bb6826bd81d3542a419d6', '19910202', 'joaoribeiro2@gmail.com', 'Joao Ribeiro Nascimento', '20190201', '3135512197');
+VALUES ('31988085157', 'Jubileu', '20190202', '9e107d9d372bb6826bd81d3542a', '19910202', 'joaoribeiro2@gmail.com', 'Joao Ribeiro Nascimento', '20190201', '3135512197');
 
 INSERT INTO USUARIO
-VALUES ('31988082344', 'Sol Quente', '20191207', 'd41d8cd98f00b204e9800998ecf8427e', '19900806', 'anaxmaia22@hotmail.com', 'Anax Maia', '20191204', '3135515193');
+VALUES ('31988087362', 'Sol Quente', '20191207', 'd41d8cd98f00b204e9800998ecf84', '19900806', 'anaxmaia22@hotmail.com', 'Anax Maia', '20191204', '3135515193');
+
+INSERT INTO USUARIO
+VALUES ('33988087532', 'Afobada', '20190605', '8743b52063cd84097a65d1633f5c7', '19970601', 'maria2nascimento@hotmail.com', 'Maria Nascimento', '20190520', '3135517368');
+
+INSERT INTO USUARIO
+VALUES ('31988082657', 'Constantino', '20191101', '01dfae6e5d4d90d9892', '19921111', 'jesusamaral@hotmail.com', 'Jesus Amaral Jr', '20191101', '3135517368');
+
+INSERT INTO USUARIO
+VALUES ('33988087421', 'Jean grey', '20190207', 'b89eaac7e61417341b710b7277682', '19890922', 'maricustodia22@hotmail.com', 'Maria Custodia', '20190204', '3135512197');
+
+INSERT INTO USUARIO
+VALUES ('31988087532', 'Chris', '20190111', 'c898896f3f70f61bc3fb19bef22', '19950207', 'otaviopena99@hotmail.com', 'Otavio Pena', '20190105', '3135517368');
+
+INSERT INTO USUARIO
+VALUES ('33988087345', 'Jesus', '20191001', 'fcf7c1b8749cf99d88e5f34', '19921019', 'renanvieira@hotmail.com', 'Renan Vieira', '20190512', '3135517368');
+
+INSERT INTO USUARIO
+VALUES ('31988087965', 'Morpheus', '20190125', '984478476IagS59wHZvyQMArzfx5', '19940729', 'robertocarlos2@hotmail.com', 'Roberto Carlos', '20190125', '3135515193');
+
+INSERT INTO USUARIO
+VALUES ('31988082467', 'Gasparzinho', '20190721', 'abaf88d66bf2334a4a8b20', '19900806', 'cleitonpinto52@hotmail.com', 'Cleiton Pinto', '20190629', '3135515193');
+
+INSERT INTO USUARIO
+VALUES ('31988088322', 'Pantene', '20190909', 'abaf88d66bf2334a4a8b20', '19960519', 'marcelopires@hotmail.com', 'Marcelo Pires', '20190905', '3135515193');
+
+INSERT INTO USUARIO
+VALUES ('31988089966', 'Dalton', '20190215', 'abaf88d66bf2334a4a8b20', '19980521', 'guilhermeabigail@hotmail.com', 'Guilherme Abigail', '20190213', '3135511301');
+
+INSERT INTO USUARIO
+VALUES ('31988086599', 'Doidao', '20191212', 'abaf88d66bf2334a4a8b20', '19970216', 'matheuspereira@hotmail.com', 'Matheus Pereira', '20191215', '3135511982');
 
 INSERT INTO MORADOR
 VALUES ('1', '31988082828');
@@ -29,19 +59,19 @@ INSERT INTO MORADOR
 VALUES ('1', '31988085157');
 
 INSERT INTO MORADOR
-VALUES ('0', '31988082344');
+VALUES ('0', '31988087965');
 
 INSERT INTO EX_MORADOR
 VALUES ('20191212', '31988082828');
 
 INSERT INTO EX_MORADOR
-VALUES ('20191230', '31988085157');
+VALUES ('20191230', '33988087421');
 
 INSERT INTO EX_MORADOR
-VALUES ('20191223', '31988082344');
+VALUES ('20191223', '31988087362');
 
 INSERT INTO CAIXINHA
-VALUES ('1', '20190505', 'descricao 1', '2182.26', '31988082344');
+VALUES ('1', '20190505', 'descricao 1', '2182.26', '31988087362');
 
 INSERT INTO CAIXINHA
 VALUES ('2', '20190604', 'descricao 2', '7482.52', '31988085157');
@@ -50,7 +80,7 @@ INSERT INTO CAIXINHA
 VALUES ('3', '20190406', 'descricao 3', '1382.22', '31988082828');
 
 INSERT INTO USUARIO_PAGA_CAIXINHA
-VALUES ('1', '31988082344', '320.50');
+VALUES ('1', '31988087362', '320.50');
 
 INSERT INTO USUARIO_PAGA_CAIXINHA
 VALUES ('2', '31988085157', '125');
@@ -121,6 +151,18 @@ VALUES ('2', 'descricao 2', 'transportar cervejas para outra republica', '319880
 INSERT INTO AFAZER
 VALUES ('3', 'descricao 3', 'levar o carro para oficina', '31988085157');
 
+INSERT INTO AFAZER
+VALUES ('4', 'descricao 4', 'ajudar outra republica com gerenciamento de festa', '31988082467');
+
+INSERT INTO AFAZER
+VALUES ('5', 'descricao 5', 'alugar o optc por em  uma data desde mes', '31988087965');
+
+INSERT INTO AFAZER
+VALUES ('6', 'descricao 6', 'concertar chuveiro', '31988082467');
+
+INSERT INTO AFAZER
+VALUES ('7', 'descricao 7', 'levar o cao ao veterinario', '31988088322');
+
 INSERT INTO TAREFA
 VALUES ('1', '7 em 7 dias');
 
@@ -131,11 +173,23 @@ INSERT INTO TAREFA
 VALUES ('3', '3 em 3 dias');
 
 INSERT INTO PROBLEMA
-VALUES ('1', 'pendente', '20190205', '20190206', '31988085157');
+VALUES ('1', 'pendente', '20190205', '20190205', '31988085157');
 
 INSERT INTO PROBLEMA
-VALUES ('2', 'pendente', '20190314', '20190321', '31988082828');
+VALUES ('2', 'pendente', '20190314', '20190314', '31988082828');
 
 INSERT INTO PROBLEMA
-VALUES ('3', 'pendente', '20190621', '20190703', '31988082344');
+VALUES ('3', 'pendente', '20190621', '20190621', '31988087532');
+
+INSERT INTO PROBLEMA
+VALUES ('4', 'concluido', '20190101', '20190102', '31988087362');
+
+INSERT INTO PROBLEMA
+VALUES ('5', 'concluido', '20190701', '20190701', '33988087345');
+
+INSERT INTO PROBLEMA
+VALUES ('6', 'metade a ser concluido', '20190914', '20190928', '31988087965');
+
+INSERT INTO PROBLEMA
+VALUES ('7', 'metade a ser concluido', '20190703', '20190705', '31988082467');
 

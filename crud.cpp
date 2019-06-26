@@ -32,7 +32,6 @@ int main()
                 cin >> republica;
                 cout << republica << endl;
                 res = string("SELECT USUARIO.NOME,NICKNAME,CELULAR FROM USUARIO,REPUBLICA WHERE USUARIO.TELEFONE_REPUBLICA = REPUBLICA.TELEFONE AND REPUBLICA.NOME = \'" + republica + "\'");
-                cout << res << endl;
                 resultado = PQexec(conexao,res.c_str());
                 if(PQresultStatus(resultado) != PGRES_TUPLES_OK)
                 {
@@ -48,7 +47,6 @@ int main()
                     for(int j = 0;j < quantidadeAtributos;j++)
                     {
                         try{
-                        cout << "Be" << endl;
                         cout << PQgetlength(resultado,i,j) << " ";
                         PQgetvalue(resultado,i,j);
                         }
@@ -61,7 +59,6 @@ int main()
                     cout << endl;
                 }
                 PQclear(resultado);
-                //PQfinish(conexao);                   
                 break;
             case 2:
                 cout << "INISIRA O CELULAR DO USUARIO E O ID DA CAIXINHA : ";
@@ -79,12 +76,11 @@ int main()
                 quantidadeAtributos = PQnfields(resultado);
                 cout << "VALOR = " << PQgetvalue(resultado,0,0);
                 PQclear(resultado);
-                //PQfinish(conexao);               
                 break;
             case 3:
                 cout << "INISIRA O CELULAR DO USUÁRIO : ";
                 cin >> celularUsuario;
-                res = string("SELECT DESCRICAO,STATUS  FROM PROBLEMA,AFAZER WHERE PROBLEMA.CELULAR_USUARIO = \'" + celularUsuario + "\' AND PROBLEMA.ID_FAZER = AFAZER.ID_AFAZER");
+                res = string("SELECT DESCRICAO,CICLO FROM TAREFA,AFAZER WHERE AFAZER.CELULAR_USUARIO = \'" + celularUsuario + "\' AND TAREFA.ID_AFAZER = AFAZER.ID_AFAZER");
                  
                 resultado = PQexec(conexao,res.c_str());
                 if(PQresultStatus(resultado) != PGRES_TUPLES_OK)
@@ -102,22 +98,19 @@ int main()
                         if(i % 2)
                             cout << "DESCRICAO \n" << endl;
                         else
-                            cout << "STATUS" << endl;
+                            cout << "CICLO" << endl;
                         cout << PQgetvalue(resultado,i,j) << "     ";
                     }
-                    cout << endl;
+                    cout << "------------------------------------------" << endl;
                 }
                 PQclear(resultado);
-                //PQfinish(conexao);                   
-                
                 break;
             case 4:
                 cout << "INISIRA O ID DA CAIXINHA E A NOVA DESCRICAO: ";
                 cin >> idCaixinha >> descricaoCaixinha;
                 res = string("UPDATE CAIXINHA SET DESCRICAO = \'" + descricaoCaixinha + "\'" + " WHERE ID_CAIXINHA = \'" + idCaixinha + "\'");
-
                 resultado = PQexec(conexao,res.c_str());
-                if(PQresultStatus(resultado) != PGRES_TUPLES_OK)
+                if(PQresultStatus(resultado) != PGRES_COMMAND_OK)
                 {
                     cout << "ALGO NAO FUNCIONOU BEM...    " << PQerrorMessage(conexao);
                     PQclear(resultado);
@@ -126,7 +119,6 @@ int main()
                 }
                 cout << "ATUALIZACAO REALIZADA COM SUCESSO! \n";
                 PQclear(resultado);
-                //PQfinish(conexao);                  
                 break;
             case 0:
                 PQfinish(conexao);
