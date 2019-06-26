@@ -10,7 +10,7 @@ int main()
     PGconn *conexao = PQconnectdb("host=localhost port=5432 dbname=republica user=gabriel password=gabriel"); // necessario alterar para valores específicos
     if (PQstatus(conexao) != CONNECTION_OK)
     {
-        cout << "NÃO FOI POSSÍVEL ACESSAR O BANCO,SAINDO...";
+        cout << "NAO FOI POSSIVEL ACESSAR O BANCO,SAINDO...";
         PQfinish(conexao);
         return 1;
     }
@@ -18,17 +18,17 @@ int main()
     int condicao,quantidadeTuplas,quantidadeAtributos;
     PGresult *resultado = NULL;
     while(true){
-        cout << "SISTEMA DE GERENCIAMENTO DE REPÚBLICAS : \n \
-        PARA CONSULTAR OS USUÁRIOS CADASTRADOS,DIGITE 1 ; \n \
-        PARA CONSULTAR O VALOR QUE UM USUÁRIO DEVE PAGAR Á UMA CAIXINHA,DIGITE 2 ; \n \
-        PARA CONSULTAR OS TAREFAS DE UM USUÁRIO,DIGITE 3 ; \n \
+        cout << "SISTEMA DE GERENCIAMENTO DE REPUBLICAS : \n \
+        PARA CONSULTAR OS USUARIOS CADASTRADOS,DIGITE 1 ; \n \
+        PARA CONSULTAR O VALOR QUE UM USUARIO DEVE PAGAR A UMA CAIXINHA,DIGITE 2 ; \n \
+        PARA CONSULTAR OS TAREFAS DE UM USUARIO,DIGITE 3 ; \n \
         PARA ATUALIZAR A DESCRICAO DE UMA CAIXINHA,DIGITE 4 ; \n \
         PARA SAIR DIGITE 0 : ";
 
         cin >> condicao;
             switch (condicao){
             case 1:
-                cout << "INISIRA O NOME DA REPÚBLICA : ";
+                cout << "INISIRA O NOME DA REPUBLICA : ";
                 cin >> republica;
                 cout << republica << endl;
                 res = string("SELECT USUARIO.NOME,NICKNAME,CELULAR FROM USUARIO,REPUBLICA WHERE USUARIO.TELEFONE_REPUBLICA = REPUBLICA.TELEFONE AND REPUBLICA.NOME = \'" + republica + "\'");
@@ -36,7 +36,7 @@ int main()
                 resultado = PQexec(conexao,res.c_str());
                 if(PQresultStatus(resultado) != PGRES_TUPLES_OK)
                 {
-                    cout << "ALGO NÃO FUNCIONOU BEM...    " << PQerrorMessage(conexao);
+                    cout << "ALGO NAO FUNCIONOU BEM...    " << PQerrorMessage(conexao);
                     PQclear(resultado);
                     PQfinish(conexao);
                     return 0;
@@ -66,10 +66,11 @@ int main()
             case 2:
                 cout << "INISIRA O CELULAR DO USUARIO E O ID DA CAIXINHA : ";
                 cin >> celularUsuario >> idCaixinha;
-                resultado = PQexec(conexao,strcat(strcat(strcat("SELECT VALOR_POR_MORADOR FROM USUARIO_PAGA_CAIXINHA WHERE ID_CAIXINHA ",idCaixinha.c_str())," AND CELULAR_USUARIO = "),celularUsuario.c_str()));
+                res = string("SELECT VALOR_POR_MORADOR FROM USUARIO_PAGA_CAIXINHA WHERE ID_CAIXINHA = \'" + idCaixinha + "\'" + " AND CELULAR_USUARIO = \'" + celularUsuario + "\'");
+                resultado = PQexec(conexao,res.c_str());
                 if(PQresultStatus(resultado) != PGRES_TUPLES_OK)
                 {
-                    cout << "ALGO NÃO FUNCIONOU BEM...    " << PQerrorMessage(conexao);
+                    cout << "ALGO NAO FUNCIONOU BEM...    " << PQerrorMessage(conexao);
                     PQclear(resultado);
                     PQfinish(conexao);
                     return 0;
@@ -83,10 +84,12 @@ int main()
             case 3:
                 cout << "INISIRA O CELULAR DO USUÁRIO : ";
                 cin >> celularUsuario;
-                resultado = PQexec(conexao,strcat(strcat("SELECT DESCRICAO,STATUS  FROM PROBLEMA,AFAZER WHERE PROBLEMA.CELULAR_USUARIO = ",celularUsuario.c_str())," AND PROBLEMA.ID_FAZER = AFAZER.ID_AFAZER"));
+                res = string("SELECT DESCRICAO,STATUS  FROM PROBLEMA,AFAZER WHERE PROBLEMA.CELULAR_USUARIO = \'" + celularUsuario + "\' AND PROBLEMA.ID_FAZER = AFAZER.ID_AFAZER");
+                 
+                resultado = PQexec(conexao,res.c_str());
                 if(PQresultStatus(resultado) != PGRES_TUPLES_OK)
                 {
-                    cout << "ALGO NÃO FUNCIONOU BEM...    " << PQerrorMessage(conexao);
+                    cout << "ALGO NAO FUNCIONOU BEM...    " << PQerrorMessage(conexao);
                     PQclear(resultado);
                     PQfinish(conexao);
                     return 0;
@@ -111,10 +114,12 @@ int main()
             case 4:
                 cout << "INISIRA O ID DA CAIXINHA E A NOVA DESCRICAO: ";
                 cin >> idCaixinha >> descricaoCaixinha;
-                resultado = PQexec(conexao,strcat(strcat(strcat("UPDATE CAIXINHA SET DESCRICAO = ",descricaoCaixinha.c_str())," WHERE ID_CAIXINHA = "),idCaixinha.c_str()));
+                res = string("UPDATE CAIXINHA SET DESCRICAO = \'" + descricaoCaixinha + "\'" + " WHERE ID_CAIXINHA = \'" + idCaixinha + "\'");
+
+                resultado = PQexec(conexao,res.c_str());
                 if(PQresultStatus(resultado) != PGRES_TUPLES_OK)
                 {
-                    cout << "ALGO NÃO FUNCIONOU BEM...    " << PQerrorMessage(conexao);
+                    cout << "ALGO NAO FUNCIONOU BEM...    " << PQerrorMessage(conexao);
                     PQclear(resultado);
                     PQfinish(conexao);
                     return 0;
@@ -127,7 +132,7 @@ int main()
                 PQfinish(conexao);
                 return 0;
             default:
-                cout << "valor inválido,digite novamente! \n ";
+                cout << "VALOR INVALIDO, DIGITE NOVAMENTE : ";
             } 
     }
 }
