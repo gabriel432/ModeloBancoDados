@@ -2,6 +2,7 @@
 #include "string.h"
 #include "stdio.h"
 #include  "C:\Program Files\PostgreSQL\11\include\libpq-fe.h"
+//g++  -I "C:\Program Files\PostgreSQL\11\include" -L "C:\Program Files\PostgreSQL\11\lib" crud.cpp -lpq -o query 
 using namespace std;
 int main()
 {
